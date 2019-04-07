@@ -129,9 +129,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-};
-
+    arr.forEach(function(element,index,arr){
+        if((element % 5 === 0) && (element % 3 ===0)){
+            arr.splice(index,1,'Fizz Buzz');
+        }
+        else if (element % 3 === 0){
+            arr.splice(index,1,'Fizz');
+        }
+        else if (element % 5 === 0){
+            arr.splice(index,1,'Buzz');
+        }
+    })
+    return arr
+  };
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
