@@ -54,9 +54,10 @@ const removeOne = (num, arr) => {
 };
 
 const removeElements = (arr, callback) => {
-  arr.forEach(element => {callback(arr[element],arr)
-  });
-  return arr;
+    for(let i = 0 ; i < arr.length ; i++) {      
+        callback(arr[i],arr);
+    }
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +67,9 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+    arr.forEach(element => {callback(arr[element],arr)
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
