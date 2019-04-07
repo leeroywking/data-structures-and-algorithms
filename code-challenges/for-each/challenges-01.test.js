@@ -83,7 +83,10 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 
-// const removeWithAnon = (arr) => arr.forEach(element => removeOne(element,arr));
+const removeWithAnon = (arr) => {
+    arr.forEach(element => {removeOne(element,arr)});
+    return arr
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -102,9 +105,12 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
-  // Solution code here...
-};
+// const createList = (availableItems) => {availableItems.forEach(element => 
+//     {
+//     if(element.available === true){arr.push(element.name)}
+// };
+// return arr;
+// )};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
