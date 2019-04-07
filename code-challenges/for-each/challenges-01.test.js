@@ -82,9 +82,8 @@ This function should use forEach again, but rather than taking in a callback as 
 This anonymous function should accept up to three arguments: the element, the index, and the array.
 ------------------------------------------------------------------------------------------------ */
 
-const removeWithAnon = (arr) => {
-  // Solution code here...
-};
+
+// const removeWithAnon = (arr) => arr.forEach(element => removeOne(element,arr));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
