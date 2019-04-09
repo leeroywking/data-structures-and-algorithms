@@ -55,9 +55,7 @@ setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
-const setStatusAsAuthor = (people) => {
-  // Solution code here...
-};
+const setStatusAsAuthor = (people) => people.forEach(person => {person.isAuthor = true});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -74,10 +72,7 @@ append(a, b);
 console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
-const append = (arr1, arr2) => {
-  // Solution code here...
-
-};
+const append = (arr1, arr2) => {arr2.forEach(element => arr1.push(element))};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
