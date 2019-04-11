@@ -60,8 +60,11 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
-};
+arr.sort( (a,b) => { 
+  return a.toUpperCase()-b.toUpperCase(); 
+});
+  return arr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -77,8 +80,11 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
-};
+arr.sort( (a,b) => { 
+  return a.price-b.price; 
+});
+  return arr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
