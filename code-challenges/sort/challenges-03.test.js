@@ -4,11 +4,21 @@
 CHALLENGE 1
 
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
+
+// Or all in line:
+array.sort( (a,b) => { 
+  return a-b; 
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
+arr.sort( (a,b) => { 
+  return b-a; 
+});
+  return arr;
+}
   // Solution code here...
-};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -22,7 +32,11 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
-};
+arr.sort( (a,b) => { 
+  return a-b; 
+});
+  return arr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
