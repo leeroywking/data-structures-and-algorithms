@@ -40,7 +40,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
 arr.sort( (a,b) => { 
-  return a.length-b.length; 
+  return a.length-b.length;
 });
   return arr;
 }
@@ -53,13 +53,13 @@ Write a function named alphabetizeBetter that takes in an array of strings and r
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetizeBetter = (arr) => {
-arr.sort( (a,b) => { 
-  return a.toUpperCase()-b.toUpperCase(); 
+const alphabetizeBetter = (arr) => arr.sort(function (a,b){
+  let vara = a.toUpperCase();
+  let varb = b.toUpperCase();
+  if(vara < varb){return -1};
+  if(vara > varb){return 1};
+  return 0;
 });
-  return arr;
-}
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
