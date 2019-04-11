@@ -88,12 +88,13 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
-arr.sort( (a,b) => { 
-  return b.length-a.length; 
+const sortNumbersByLength = (arr) => arr.sort(function (a,b){
+  let vara = a.toString().length;
+  let varb = b.toString().length;
+  if(vara < varb){return -1};
+  if(vara > varb){return 1};
+  return 0;
 });
-  return arr;
-}
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -113,12 +114,13 @@ const people = [
   new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = (arr) => {
-arr.sort( (a,b) => { 
-  return a.lastName-b.lastName; 
+const sortPeople = (arr) => arr.sort(function (a,b){
+  let vara = a.lastName;
+  let varb = b.lastName;
+  if(vara < varb){return -1};
+  if(vara > varb){return 1};
+  return 0;
 });
-  return arr;
-}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
 
@@ -129,9 +131,25 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-  // Solution code here...
-};
+const sortPeopleBetter = (arr) => arr.sort(function (a,b){
+  let vara = a.lastName;
+  let varb = b.lastName;
+  if(vara < varb){return -1};
+  if(vara > varb){return 1};
+  if(vara === varb){
+    let vara = a.firstName;
+    let varb = b.firstName;
+    if(vara < varb){return -1};
+    if(vara > varb){return 1};
+    if(vara === varb){
+      let vara = a.age;
+      let varb = b.age;
+      if(vara < varb){return -1};
+      if(vara > varb){return 1};
+    }
+  }
+  return 0
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -155,10 +173,20 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = (arr) => {
-  // Solution code here...
-};
-
+const sortMeetingsByDay = (arr) => arr.sort(function (a,b){
+  let vara = a.dayOfWeek;
+  let varb = b.dayOfWeek;
+  function dayConverter(day){
+    if(day === 'Monday'){return 1};
+    if(day === 'Tuesday'){return 2};
+    if(day === 'Wednesday'){return 3};
+    if(day === 'Thursday'){return 4};
+    if(day === 'Friday'){return 5};
+  }
+  if(dayConverter(vara) < dayConverter(varb)){return -1};
+  if(dayConverter(vara) > dayConverter(varb)){return 1};
+  return 0;
+});
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
@@ -169,9 +197,32 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
-const sortSchedule = (arr) => {
-  // Solution code here...
-};
+const sortSchedule = (arr) => arr.sort(function (a,b){
+  function dayConverter(day){
+    if(day === 'Monday'){return 1};
+    if(day === 'Tuesday'){return 2};
+    if(day === 'Wednesday'){return 3};
+    if(day === 'Thursday'){return 4};
+    if(day === 'Friday'){return 5};
+  }
+  let vara = dayConverter(a.dayOfWeek);
+  let varb = dayConverter(b.dayOfWeek);
+  if((vara) < (varb)){return -1};
+  if((vara) > (varb)){return 1};
+  if(vara === varb){
+    let vara = a.start;
+    let varb = b.start;
+    if((vara) < (varb)){return -1};
+    if((vara) > (varb)){return 1};
+      if(vara === varb){
+        let vara = a.end - a.start;
+        let varb = b.end - a.start;
+        if((vara) < (varb)){return -1};
+        if((vara) > (varb)){return 1};
+      }
+  }
+  return 0;
+});
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
