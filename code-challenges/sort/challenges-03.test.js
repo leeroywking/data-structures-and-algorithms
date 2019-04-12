@@ -12,13 +12,7 @@ array.sort( (a,b) => {
 
 ------------------------------------------------------------------------------------------------ */
 
-const sortBackwards = (arr) => {
-arr.sort( (a,b) => { 
-  return b-a; 
-});
-  return arr;
-}
-  // Solution code here...
+const sortBackwards = (arr) => arr.sort( (a,b) => b-a);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -38,12 +32,7 @@ CHALLENGE 3
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = (arr) => {
-arr.sort( (a,b) => { 
-  return a.length-b.length;
-});
-  return arr;
-}
+const sortByLength = (arr) => arr.sort( (a,b) => a.length-b.length);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -73,12 +62,7 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
-arr.sort( (a,b) => { 
-  return a.price-b.price; 
-});
-  return arr;
-}
+const sortByPrice = (arr) => arr.sort( (a,b) => a.price-b.price)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -115,10 +99,10 @@ const people = [
 ];
 
 const sortPeople = (arr) => arr.sort(function (a,b){
-  let vara = a.lastName;
-  let varb = b.lastName;
-  if(vara < varb){return -1};
-  if(vara > varb){return 1};
+  let varA = a.lastName;
+  let varB = b.lastName;
+  if(varA < varB){return -1};
+  if(varA > varB){return 1};
   return 0;
 });
 /* ------------------------------------------------------------------------------------------------
