@@ -57,9 +57,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+    if(input.match(/\b[Oo][c][\w]*[^n b]/)) {return true};
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -71,7 +70,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+    return str.match(/[\w]{1}[\w]*[$ ]/g);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +86,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+    return str.replace(/[aeiouAEIOU]/g , '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,7 +102,8 @@ Hint: All of these words end with the letters "ells".
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (str) => {
-  // Solution code here...
+    // let regex = /[\w]*[e][l][l][s]/
+  return str.match(/[\w]*[e][l][l][s]/g)
 };
 
 /* ------------------------------------------------------------------------------------------------
