@@ -57,8 +57,12 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-    if(input.match(/\b[Oo][c][\w]*[^n b]/)) {return true};
-};
+    input = input.toString();
+      let regex = /^[Oo][c].*[^b]$/;
+      if(input.match(regex)){return true};
+      if(!input.match(regex)){return false};
+  };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
