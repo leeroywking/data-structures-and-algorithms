@@ -143,11 +143,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-    arr.forEach((element, index, array) => {
-        let remainder = element % 2;
-        if (remainder === 0) { array.splice(index, 1) }
-    });
-    return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +162,11 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-    return str.split('').splice(str.length - numberOfCharacters, numberOfCharacters).join('')
+    str = str.split('')
+    str.splice(str.length - numberOfCharacters, numberOfCharacters)
+    str = str.join('');
+    console.log(str);
+    return str;
 };
 
 
@@ -179,9 +179,7 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
     let total = 0;
     let array = str.split(',');
-    console.log(array);
     array.forEach((element => total += parseInt(element)));
-console.log(total);
 return total;
 };
 
@@ -194,9 +192,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => {
-    // Solution code here...
-};
+const removeVowels = (str) => str.replace(/[aeiouAEIOU]/g, '');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -209,7 +205,12 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-    // Solution code here...
+    let vowels = str.match(/[AEIOUaeiou]/g);
+    let consonants = str.match(/[^AEIOUaeiou]/g);
+    let output = [];
+    output.push(consonants.join(''));
+    output.push(vowels.sort().join(''));
+    return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -310,7 +311,6 @@ describe('Testing challenge 10', () => {
     test('It should return the string without vowels', () => {
         expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
         expect(extractVowels('gregor').length).toStrictEqual(2);
-
         expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
     });
 });
