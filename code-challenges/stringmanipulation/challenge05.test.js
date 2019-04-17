@@ -16,11 +16,13 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
     let result = [];
     let working = str.split('');
-    while (working.length > 0) {
-        result.push(working.join(''));
-        working.splice(0, 1);
+    let counter = 0;
+    while(counter < working.length +1){
+        result.push(working.slice(counter,working.length).join(''));
+        counter++;
+        console.log(result);
     }
-    result.push(working.join(''));
+    console.log(result);
     return result;
 };
 
@@ -149,11 +151,9 @@ const removeEvenValues = (arr) => {
         evens.push(element)
         }
     })
-    console.log(evens);
     evens.forEach(element => {
         arr.splice(arr.indexOf(element),1);
     })
-    console.log(arr);
     return(arr);
 };
 
