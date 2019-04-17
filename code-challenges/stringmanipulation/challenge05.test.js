@@ -124,8 +124,8 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
     let result = [];
     recipe.steps.forEach(element => {
-    result.push(element.split(' ')[0])        
-    });
+        result.push(element.split(' ')[0])
+    })
     return result;
 };
 
@@ -143,8 +143,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-    arr.forEach(element, index => {
-        if((element % 2) === 0){arr.splice(index, 1)}
+    arr.forEach((element, index, array) => {
+        let remainder = element % 2;
+        if (remainder === 0) { array.splice(index, 1) }
     });
     return arr;
 };
@@ -165,7 +166,7 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-    // Solution code here...
+    return str.split('').splice(str.length - numberOfCharacters, numberOfCharacters).join('')
 };
 
 
@@ -177,8 +178,11 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
     let total = 0;
-    // Solution code here...
-    return total;
+    let array = str.split(',');
+    console.log(array);
+    array.forEach((element => total += parseInt(element)));
+console.log(total);
+return total;
 };
 
 
