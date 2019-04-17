@@ -143,7 +143,18 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-
+    let evens = [];
+    arr.forEach((element,index,array) => {
+        if((element % 2) === 0){
+        evens.push(element)
+        }
+    })
+    console.log(evens);
+    evens.forEach(element => {
+        arr.splice(arr.indexOf(element),1);
+    })
+    console.log(arr);
+    return(arr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -165,7 +176,6 @@ const removeLastCharacters = (str, numberOfCharacters) => {
     str = str.split('')
     str.splice(str.length - numberOfCharacters, numberOfCharacters)
     str = str.join('');
-    console.log(str);
     return str;
 };
 
