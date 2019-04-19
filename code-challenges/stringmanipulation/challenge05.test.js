@@ -20,9 +20,7 @@ const howMuchPencil = (str) => {
     while(counter < working.length +1){
         result.push(working.slice(counter,working.length).join(''));
         counter++;
-        console.log(result);
     }
-    console.log(result);
     return result;
 };
 

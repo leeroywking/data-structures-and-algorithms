@@ -25,9 +25,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
-    return str.match(/\b[A-Z][\w]*/g);
-  };
+const isCapitalized = str => str.match(/\b[A-Z][\w]*/g);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
