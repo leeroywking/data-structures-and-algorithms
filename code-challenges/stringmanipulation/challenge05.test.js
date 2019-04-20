@@ -15,10 +15,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
     let result = [];
-    let working = str.split('');
     let counter = 0;
-    while(counter < working.length +1){
-        result.push(working.slice(counter,working.length).join(''));
+    while(counter < str.length +1){
+        result.push(str.slice(counter,str.length));
         counter++;
     }
     return result;
@@ -79,7 +78,6 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
     let result = [];
     const cleaner = str => {
-        var str = str;
         const space = str => str.indexOf(' ');
         str = str.slice(space(str) + 1, str.length);
         str = str.slice(space(str) + 1, str.length);
