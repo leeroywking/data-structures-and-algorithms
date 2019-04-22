@@ -152,9 +152,15 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
     const sizes = [];
-    // Solution code here...
+    arr.forEach(element => {
+      let memberCount = 0;
+      if((element).name){memberCount++}
+      if((element).spouse){memberCount++}
+      if((element).children){memberCount += element.children.length}
+      sizes.push({ 'house': element.house, 'members': memberCount})
+    })
     return sizes;
-};
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
