@@ -117,7 +117,6 @@ The input and output of this function are the same as the input and output from 
 const hasChildrenEntries = (arr, character) => {
     let result = false;
     for(let i =0; i < arr.length; i++){
-      console.log(Object.entries(arr[i])[2][1].length)
       if(Object.entries(arr[i])[0][1] === character){
         if(Object.entries(arr[i])[2][1].length){result = true}
           }
