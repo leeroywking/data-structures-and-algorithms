@@ -52,10 +52,7 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
-const charCode = (arr) => arr.map( element => {
-  let string = arr.join('');
-  return string.charCodeAt(arr.indexOf(element));
-});
+const charCode = (arr) => arr.map(element => arr.join('').charCodeAt(arr.indexOf(element)));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -173,11 +170,8 @@ const extractStats = (arr) => arr.map(element => {
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
 All the code below will verify that your functions are working to solve the challenges.
-
 DO NOT CHANGE any of the below code.
-
 Run your tests from the console: jest challenges-07.test.js
 
 ------------------------------------------------------------------------------------------------ */
