@@ -70,10 +70,9 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => arr.reduce((agg,val,idx)  =>  {
-  console.log(val[idx].name,  agg);
-  agg.push(val[idx].name);
+  agg.push(val.name);
   return agg
-});
+}, []);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -83,9 +82,12 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (arr) => {
-  // Solution code here...
-};
+const reversedString = (str) => {
+  return str.split('').reduce((agg,val,idx) =>{
+  agg.unshift(val)
+  return agg
+  }, []).join('');
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -136,9 +138,11 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
-};
+const countNumberOfChildren = (arr) => arr.reduce((agg,val,idx) =>{
+  return (agg += val.children.length)
+  console.log(agg, typeof agg);
+  return agg;
+}, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
