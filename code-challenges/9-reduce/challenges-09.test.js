@@ -139,21 +139,24 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => arr.reduce((agg,val,idx) =>{
-  return (agg += val.children.length)
-  console.log(agg, typeof agg);
+  if(val.children){ agg+= val.children.length}
   return agg;
-}, 0);
+}, 0)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function that, given an array of numbers as input, uses reduce to calculate the array's average value.
 
-Hint: The accumulator should begin as { count: 0, sum: 0 }
+Hint: The accumulator should begin as { count: 0, sum: 0 } 
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  return arr.reduce((agg,val, idx)=> {
+  agg += val
+  if(arr.length === idx+1){return agg / arr.length}
+  else{return agg}
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,9 +176,10 @@ const isPrime = (value) => {
   return value > 1;
 };
 
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-};
+const countPrimeNumbers = (arr) => arr.reduce((agg,val,idx) =>{
+  if(isPrime(val)){agg++}
+  return agg
+}, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -216,9 +220,12 @@ const snorlaxData = {
   weight: 4600,
 };
 
-const extractStat = (statName, arr) => {
-  // Solution code here...
-};
+const extractStat = (statName, arr) => arr.reduce((agg,val,idx) =>{
+  if(agg){return(agg)};
+  if(val.stat.name === statName){agg = val}
+  console.log(agg);
+  return agg;
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -230,9 +237,10 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
-const extractChildren = (arr) => {
-  // Solution code here...
-};
+const extractChildren = (arr) => arr.filter(element => element.name.match(/a/)).reduce((agg,val,idx) => {
+  if(val.children){val.children.forEach(element => agg.push(element))}
+  return agg
+}, [])
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
