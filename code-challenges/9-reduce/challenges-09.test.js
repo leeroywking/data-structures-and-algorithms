@@ -223,7 +223,6 @@ const snorlaxData = {
 const extractStat = (statName, arr) => arr.reduce((agg,val,idx) =>{
   if(agg){return(agg)};
   if(val.stat.name === statName){agg = val}
-  console.log(agg);
   return agg;
 });
 
@@ -237,8 +236,7 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
-const extractChildren = (arr) => arr.filter(element => element.name.match(/a/)).reduce((agg,val,idx) => {
-  if(val.children){val.children.forEach(element => agg.push(element))}
+const extractChildren = (arr) => arr.filter(element => element.name.match(/a/)).reduce((agg,val,idx) => {if(val.children){val.children.forEach(element => agg.push(element))}
   return agg
 }, [])
 
