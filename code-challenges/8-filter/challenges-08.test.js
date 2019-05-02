@@ -42,12 +42,8 @@ Write a function named notInFirstArray that, given two arrays as input, uses fil
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const notInFirstArray = (forbiddenValues, arr) => {
-    return arr.filter(element => {
-        if (forbiddenValues.indexOf(element) === -1) { return true }
-        else { return false }
-    })
-};
+const notInFirstArray = (forbiddenValues, arr) => arr.filter(element => (forbiddenValues.indexOf(element) === -1))
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -102,14 +98,7 @@ Write a function named getStatName that is an extension of your getBaseStatGreat
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const getStatName = (arr, minBaseStat) => {
-    let result = arr.filter(element => {
-        if (element.baseStat > minBaseStat) { return true };
-    }).map(element => {
-        return element.stat.name
-    })
-    return result;
-};
+const getStatName = (arr, minBaseStat) => arr.filter(element => (element.baseStat > minBaseStat)).map(element => element.stat.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
