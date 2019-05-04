@@ -23,9 +23,7 @@ You may want to use filter, map, or reduce for this problem, but are not require
 For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
-const totalSum = (input) => {
-  // Solution code here...
-};
+const totalSum = (input) => input.flat().reduce((agg,val) => agg+val);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -39,9 +37,12 @@ This function should then raise 2 to the power of the resulting numbers, returni
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
-const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
-};
+const divisibleByFiveTwoToThePower = (input) => 
+    input.map(el => el
+    .filter(ele => ((typeof ele === 'number') && (ele%5 ===0))
+    ))
+    .map(elem => elem
+    .map(eleme => Math.pow(2,eleme)))
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -105,9 +106,14 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = (data) => 
+  data.filter(character => (
+    (character.gender === 'male') || 
+    (character.gender === 'female')
+  )).reduce((acc,val)=> {
+    acc.push(val.name)
+    return acc
+  }, []).join(' and ')
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -115,9 +121,10 @@ CHALLENGE 5
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => {
-  // Solution code here...
-};
+let findShortest = (data) => data.reduce((acc,val)=>{
+    if(parseInt(val.height) < parseInt(acc.height)){ acc = val}
+    return acc
+  }).name
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
