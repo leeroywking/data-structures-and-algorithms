@@ -60,7 +60,7 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
 ------------------------------------------------------------------------------------------------ */
 
-const findTagNames = elements => elements.map(item => item.match(/[<][/].*$/gm)).flat().join().replace(/[<>,]/g,'').split('/').filter(element  => element).map(element => '/'+element);
+const findTagNames = elements => elements.map(item => item.match(/<\/\w*>/g)).join().replace(/[>,]/g,'').split('<').filter(element  => element);
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
