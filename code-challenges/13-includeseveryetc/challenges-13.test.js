@@ -62,9 +62,7 @@ CHALLENGE 6
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-};
+const findAnything = (arr, target) => arr.filter(string => string.includes(target));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -72,9 +70,10 @@ CHALLENGE 7
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findEvery = (arr, target) => {
-  // Solution code here...
-};
+const findEvery = (arr, target) => arr.reduce((acc, value) => {
+  if((acc === true) && (value.includes(target))){return true}
+  else{return false}
+}, true);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -88,9 +87,7 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = (arr) => {
-  // Solution code here...
-};
+const unenrollBrook = (arr) => arr.map(darray => darray.filter(string => !string.includes('Brook')));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
