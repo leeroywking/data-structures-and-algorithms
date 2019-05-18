@@ -8,9 +8,7 @@ Write a function named toTitleCase that takes in an array of strings and returns
 For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyver'].
 ------------------------------------------------------------------------------------------------ */
 
-const toTitleCase = (arr) => {
-  // Solution code here...
-};
+const toTitleCase = (arr) => arr.map(string=> string.charAt(0).toUpperCase()+string.substring(1,string.length));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -83,10 +81,7 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-let biggerThanLuke = (arr) => {
-  // Solution code here...
-};
-
+let biggerThanLuke = (arr) => arr.filter(character => character.mass > 77).map(character => character.name).join(' - ');
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 Write a function named sortBy that takes in an array of objects, each of which has a particular property, and sorts those objects by that property, lowest to highest, returning the same array.
@@ -101,9 +96,10 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => {
-  // Solution code here...
-};
+const sortBy = (property, arr) => arr.sort((a,b) => {
+  if(a[property] > b[property]){return 1}
+  else{return -1}
+})
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -118,9 +114,9 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-// Solution code here...
-};
-
+  if(url.match(/https\:\/\//)){return true}
+  else{return false}
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -141,7 +137,33 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  const emptyValueCheck = (line) => {
+    line = line.filter(value => value)
+    if(line.length === 3){return true}
+    else{return false}
+    }
+  const lineCheck = (line) => {
+    if((line[0] === line[1]) && (line[0] === line[2])){return true}
+  }
+  const isLineWin = (line) => {
+    if(lineCheck(line) && emptyValueCheck(line))
+    {return true}
+    else{return false}
+  }
+  const lineGenerator = (board) => {
+    let lines = [];
+    board.forEach(row => lines.push(row)) 
+    lines.push([board[0][0],board[1][0],board[2][0]])
+    lines.push([board[0][1],board[1][1],board[2][1]])
+    lines.push([board[0][2],board[1][2],board[2][2]])
+    lines.push([board[0][0],board[1][1],board[2][2]])
+    lines.push([board[0][2],board[1][1],board[2][0]])
+    return lines
+  }
+  let lines = lineGenerator(board);
+  let lineResults = lines.map(line => isLineWin(line));
+  if(lineResults.includes(true)){return true}
+  else{return false}
 };
 
 /* ------------------------------------------------------------------------------------------------
