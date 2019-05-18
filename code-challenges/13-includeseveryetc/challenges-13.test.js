@@ -52,8 +52,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => arr.reduce((acc,value) =>{
-    if((acc === true)&&(value.includes(':)'))){return  true}
-    else{return false}
+    return ((acc === true)&&(value.includes(':)'))) ? true :false
 },true);
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,8 +70,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => arr.reduce((acc, value) => {
-  if((acc === true) && (value.includes(target))){return true}
-  else{return false}
+  return ((acc === true) && (value.includes(target))) ? true : false
 }, true);
 
 /* ------------------------------------------------------------------------------------------------
