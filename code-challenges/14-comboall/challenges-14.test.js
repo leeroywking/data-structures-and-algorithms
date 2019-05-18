@@ -8,7 +8,7 @@ Write a function named toTitleCase that takes in an array of strings and returns
 For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyver'].
 ------------------------------------------------------------------------------------------------ */
 
-const toTitleCase = (arr) => arr.map(string=> string.charAt(0).toUpperCase()+string.substring(1,string.length));
+const toTitleCase = (arr) => arr.map(string => string.charAt(0).toUpperCase() + string.substring(1, string.length));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -96,9 +96,9 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => arr.sort((a,b) => {
-  if(a[property] > b[property]){return 1}
-  else{return -1}
+const sortBy = (property, arr) => arr.sort((a, b) => {
+  if (a[property] > b[property]) { return 1 }
+  else { return -1 }
 })
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,8 +114,8 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-  if(url.match(/https\:\/\//)){return true}
-  else{return false}
+  if (url.match(/https\:\/\//)) { return true }
+  else { return false }
 }
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -137,33 +137,27 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  const emptyValueCheck = (line) => {
-    line = line.filter(value => value)
-    if(line.length === 3){return true}
-    else{return false}
-    }
-  const lineCheck = (line) => {
-    if((line[0] === line[1]) && (line[0] === line[2])){return true}
-  }
-  const isLineWin = (line) => {
-    if(lineCheck(line) && emptyValueCheck(line))
-    {return true}
-    else{return false}
-  }
+  const emptyCheck = (line) => (line.filter(entry => entry).length === 3) ? true : false
+  const lineCheck = (line) => ((line[0] === line[1]) && (line[0] === line[2])) ? true : false
+  const isLineWin = (line) => (lineCheck(line) && emptyCheck(line)) ? true : false
+
   const lineGenerator = (board) => {
     let lines = [];
-    board.forEach(row => lines.push(row)) 
-    lines.push([board[0][0],board[1][0],board[2][0]])
-    lines.push([board[0][1],board[1][1],board[2][1]])
-    lines.push([board[0][2],board[1][2],board[2][2]])
-    lines.push([board[0][0],board[1][1],board[2][2]])
-    lines.push([board[0][2],board[1][1],board[2][0]])
+    let tempLine = [];
+    board.forEach(row => lines.push(row))
+    for (let j = 0; j < 3; j++) {
+      for (let i = 0; i < 3; i++) {
+        tempLine.push(board[i][j])
+      }
+      lines.push(tempLine); tempLine = []
+    }
+    lines.push([board[0][0], board[1][1], board[2][2]])
+    lines.push([board[0][2], board[1][1], board[2][0]])
     return lines
   }
   let lines = lineGenerator(board);
   let lineResults = lines.map(line => isLineWin(line));
-  if(lineResults.includes(true)){return true}
-  else{return false}
+  return (lineResults.includes(true)) ? true : false
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -180,7 +174,7 @@ Run your tests from the console: jest challenge-14.test.js
 describe('Testing challenge 1', () => {
   test('It should convert each word to title case', () => {
     const words = ['apple', 'banana', 'MacGyver'];
-    expect(toTitleCase(words)).toStrictEqual(['Apple','Banana','MacGyver']);
+    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
 
     expect(toTitleCase([])).toStrictEqual([]);
   });
@@ -197,13 +191,13 @@ describe('Testing challenge 3', () => {
   test('It should sort items by a price', () => {
 
     expect(sortBy('price', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
     ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15},
-      {name: 'Sweatshirt', price: 45},
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 },
+      { name: 'Sweatshirt', price: 45 },
     ]);
 
   });
@@ -211,13 +205,13 @@ describe('Testing challenge 3', () => {
   test('It should sort items by name', () => {
 
     expect(sortBy('name', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
     ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Tote bag', price: 15},
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Tote bag', price: 15 },
     ]);
   });
 });
