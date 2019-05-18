@@ -136,25 +136,27 @@ Here is a sample board:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const detectTicTacToeWin = (board) => {
-  const emptyCheck = (line) => (line.filter(entry => entry).length === 3) ? true : false
-  const lineCheck = (line) => ((line[0] === line[1]) && (line[0] === line[2])) ? true : false
-  const isLineWin = (line) => (lineCheck(line) && emptyCheck(line)) ? true : false
 
+const detectTicTacToeWin = (board) => {
   const lineGenerator = (board) => {
     let lines = [];
-    let tempLine = [];
     board.forEach(row => lines.push(row))
     for (let j = 0; j < 3; j++) {
+      let tempLine = [];
       for (let i = 0; i < 3; i++) {
         tempLine.push(board[i][j])
       }
-      lines.push(tempLine); tempLine = []
+      lines.push(tempLine);
     }
     lines.push([board[0][0], board[1][1], board[2][2]])
     lines.push([board[0][2], board[1][1], board[2][0]])
     return lines
   }
+  
+  const emptyCheck = (line) => (line.filter(entry => entry).length === 3) ? true : false
+  const lineCheck = (line) => ((line[0] === line[1]) && (line[0] === line[2])) ? true : false
+  const isLineWin = (line) => (lineCheck(line) && emptyCheck(line)) ? true : false
+
   let lines = lineGenerator(board);
   let lineResults = lines.map(line => isLineWin(line));
   return (lineResults.includes(true)) ? true : false
