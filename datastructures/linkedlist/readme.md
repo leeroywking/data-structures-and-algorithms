@@ -18,3 +18,22 @@ insertBefore and insertAfter are both O(n) time as well
 <!-- Embedded whiteboard image -->
 
 ![Whiteboard image](https://raw.githubusercontent.com/leeroywking/data-structures-and-algorithms/master/datastructures/assets/ll_insertions.jpg)
+
+
+
+# Challenge Summary
+This challenge was to implement the kthfromEnd method on our linked lists
+## Challenge Description
+
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+
+Approach was for space efficiency, 
+
+since the primary advantage of linked lists is in space efficiency we tried to maximize that by eliminating extra stored information IE reusing variables and not creating arrays needlessly.
+
+## Solution
+<!-- Embedded whiteboard image -->
+
+![Whiteboard image](https://files.slack.com/files-pri/T039KG69K-FLEGDEVPY/image_from_ios.jpg)
