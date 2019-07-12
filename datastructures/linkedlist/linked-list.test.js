@@ -1,74 +1,5 @@
-'use strict'
-
-class Linkedlist {
-  constructor() {
-    this.head = null;
-  };
-
-  insert(data) {
-    this.head = new Node(data, this.head)
-    return data;
-  };
-
-  includes(value) {
-    let current = this.head
-    while (current) {
-      if (current.data === value) {
-        return true;
-      };
-      current = current.next;
-    };
-    return false;
-  };
-
-  toString() {
-    let ans = '';
-    let current = this.head;
-    while (current) {
-      ans += current.data;
-      current = current.next;
-    };
-    return ans;
-  }
-
-  append(value) {
-    let current = this.head;
-    if (current) {
-      while (current.next) {
-        current = current.next;
-      };
-      current.next = new Node(value);
-    }
-    else{this.head = new Node(value)};
-  };
-
-  insertBefore(value, newValue) {
-    let current = this.head;
-    while (current.next.data !== value) {
-      current = current.next;
-    };
-    current.next = new Node(newValue, this.next);
-  };
-
-  insertAfter(value, newValue) {
-    let current = this.head;
-    while (current.data !== value) {
-      current = current.next;
-    };
-    current.next = new Node(newValue, this.next);
-  };
-
-};
-
-
-class Node {
-  constructor(data, next = null) {
-    this.next = next;
-    this.data = data;
-  }
-}
-
-
+'use strict';
+const Linkedlist = require('./linked-list.js');
 
 
 describe('Testing Singly Linked Lists', () => {
@@ -145,5 +76,49 @@ describe('Testing Singly Linked Lists', () => {
     list.insertAfter(55555, 69);
     expect(list.head.next.next.next.next.next.data).toBe(69);
   });
-});
 
+  it('if K is greater than the length of linked list reply undefined', () => {
+    let list = new Linkedlist();
+    list.append(5);
+    list.append(3);
+    list.append(7);
+    list.append(10);
+    list.append(55555);
+    expect(list.kthFromEnd(10)).toBeUndefined();
+  });
+
+  it('if k and the length are the same', () => {
+    let list = new Linkedlist();
+    list.append(5);
+    list.append(3);
+    list.append(7);
+    list.append(10);
+    list.append(55555);
+    expect(list.kthFromEnd(5)).toBeUndefined();
+  });
+
+  it('is not positive the method throws undefined', () => {
+    let list = new Linkedlist();
+    list.append(5);
+    list.append(3);
+    list.append(7);
+    list.append(10);
+    list.append(55555);
+    expect(list.kthFromEnd(-10)).toBeUndefined();
+  });
+
+  it('deals with a 1 node LL correctly', () => {
+    let list = new Linkedlist();
+    list.append(5);
+    expect(list.kthFromEnd(0)).toBe(5);
+  });
+
+  it('Actually returns the thing we want it to (the kth value from the linked list)', () => {
+    let list = new Linkedlist();
+    list.append(5);
+    list.append(3);
+    list.append(7);
+    list.append(10);
+    expect(list.kthFromEnd(2)).toBe(3);
+  });
+});
