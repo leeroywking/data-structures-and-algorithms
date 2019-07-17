@@ -58,5 +58,5 @@ The image reflected a more ambitious solution which I ran out of time to impleme
 
 <!-- Embedded whiteboard image -->
 
-![Whiteboard image](https://files.slack.com/files-pri/T039KG69K-FLAE6MTSM/image_from_ios.jpg)
+![Whiteboard image](https://raw.githubusercontent.com/leeroywking/data-structures-and-algorithms/master/datastructures/assets/ll_merge.jpg)
 
