@@ -37,3 +37,26 @@ since the primary advantage of linked lists is in space efficiency we tried to m
 <!-- Embedded whiteboard image -->
 
 ![Whiteboard image](https://files.slack.com/files-pri/T039KG69K-FLEGDEVPY/image_from_ios.jpg)
+
+
+
+
+# Challenge Summary
+This challenge was to merge two linked lists 
+
+## Challenge Description
+
+Write a function which takes in two linked lists and returns the head of the merged linked lists
+
+## Approach & Efficiency
+
+Approach was for space efficiency, 
+
+The image reflected a more ambitious solution which I ran out of time to implement the problem with the solution in the image is that it overwrites itself and then never does what it is supposed to do, a solution that would work is iterating the two lists at 1 off from each other e
+## Solution
+
+
+<!-- Embedded whiteboard image -->
+
+![Whiteboard image](https://files.slack.com/files-pri/T039KG69K-FLAE6MTSM/image_from_ios.jpg)
+
