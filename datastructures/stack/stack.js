@@ -12,9 +12,11 @@ class Stack {
     this.top = null;
     this.bottom = null;
   };
+
   push(value) {
     this.top = new Node(value, this.top);
   };
+
   pop() {
     //assign temp value;
     let temp = this.top;
@@ -25,9 +27,12 @@ class Stack {
     //return this.top.value
     return temp.value;
   };
+
   peek() {
-    let value = this.top.value;
-    return value;
+    if(this.top){
+    return this.top.value;
+    }
+    else{return null}
   };
 };
 

@@ -5,7 +5,7 @@ const Queue = require('./queue.js');
 describe('queue tests', () => {
     it('Can instantiate a queue', () => {
         let newQ = new Queue();
-        expect(newQ.queue).toStrictEqual([])
+        expect(newQ.showQueue()).toStrictEqual([])
     });
 
     it('Can enqueue things', () => {
@@ -14,7 +14,8 @@ describe('queue tests', () => {
         newQ.enqueue(10);
         newQ.enqueue(15);
         newQ.enqueue(20);
-        expect(newQ.queue).toStrictEqual([5,10,15,20])
+        console.log(newQ)
+        expect(newQ.showQueue()).toStrictEqual([5,10,15,20])
     });
 
     it('Can dequeue things', () => {
@@ -22,7 +23,17 @@ describe('queue tests', () => {
         newQ.enqueue(5);
         newQ.enqueue(10);
         newQ.enqueue(15);
-        newQ.dequeue();
-        expect(newQ.queue).toStrictEqual([10,15])
+        newQ.enqueue(20);
+        newQ.dequeue()
+        expect(newQ.dequeue()).toStrictEqual(10)
+    });
+
+    it('peeks correctly', () => {
+        let newQ = new Queue();
+        newQ.enqueue(5);
+        newQ.enqueue(10);
+        newQ.enqueue(15);
+        newQ.enqueue(20);
+        expect(newQ.peek()).toBe(5);
     })
 })
