@@ -1,6 +1,6 @@
 'use strict'
 
-const Stack = require('../stack/stack.js').Stack;
+const Stack = require('../../datastructures/stack/stack.js').Stack;
 
 class QWS {
   constructor() {
