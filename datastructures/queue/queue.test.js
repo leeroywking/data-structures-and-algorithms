@@ -14,7 +14,6 @@ describe('queue tests', () => {
         newQ.enqueue(10);
         newQ.enqueue(15);
         newQ.enqueue(20);
-        console.log(newQ)
         expect(newQ.showQueue()).toStrictEqual([5,10,15,20])
     });
 
