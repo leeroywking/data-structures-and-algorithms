@@ -15,3 +15,11 @@ Implement a stack
 ## Approach & Efficiency
 
 There isn't really any approach to be had here its a stack, I will instantiate a new class and then define the methods which it uses in order to behave in a way that stacks are supposed to behave.
+
+### success criteria
+-  [x] Can successfully push onto a stack
+-  [x] Can successfully push multiple values onto a stack
+-  [x] Can successfully pop off the stack
+-  [x] Can successfully empty a stack after multiple pops
+-  [x] Can successfully peek the next item on the stack
+-  [x] Can successfully instantiate an empty stack
