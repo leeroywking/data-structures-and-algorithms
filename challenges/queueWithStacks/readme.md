@@ -15,4 +15,4 @@ The Stack instances have only push, pop, and peek methods. You should use your o
 we went with a mini towers of hanoi solution
 
 
-https://files.slack.com/files-pri/T039KG69K-FLQQJUR0W/image_from_ios.jpg
+![img](./codechallenge11.jpg)
