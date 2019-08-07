@@ -17,6 +17,5 @@ Conduct “FizzBuzz” on a tree while traversing through it. Change the values 
 
 
 ## UML 
-<!-- ![img](./codechallenge11.jpg) -->
-    
+No UML for this one since it was completed solo
 
