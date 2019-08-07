@@ -13,10 +13,10 @@ class BinaryTree {
   preOrder() {
     let arr = [];
     let current = this.root;
-    function iterate(node) {
+    function iterate(current) {
       arr.push(current.val)
-      if (current.left) { iterate(node.left) }
-      if (current.right) { iterate(node.right) }
+      if (current.left) { iterate(current.left) }
+      if (current.right) { iterate(current.right) }
     };
     iterate(current);
     return arr;
@@ -24,10 +24,10 @@ class BinaryTree {
   inOrder() {
     let arr = [];
     let current = this.root;
-    function iterate(node) {
-      if (current.left) { iterate(node.left) }
+    function iterate(current) {
+      if (current.left) { iterate(current.left) }
       arr.push(current.val)
-      if (current.right) { iterate(node.right) }
+      if (current.right) { iterate(current.right) }
     };
     iterate(current);
     return arr;
@@ -35,9 +35,9 @@ class BinaryTree {
   postOrder() {
     let arr = [];
     let current = this.root;
-    function iterate(node) {
-      if (current.left) { iterate(node.left) }
-      if (current.right) { iterate(node.right) }
+    function iterate(current) {
+      if (current.left) { iterate(current.left) }
+      if (current.right) { iterate(current.right) }
       arr.push(current.val)
     };
     iterate(current);
@@ -75,3 +75,5 @@ class BinarySearchTree extends BinaryTree {
     return this.preOrder().includes(value)
   }
 };
+
+module.exports = BinarySearchTree
