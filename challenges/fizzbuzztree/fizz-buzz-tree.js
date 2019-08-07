@@ -1,5 +1,12 @@
 'use strict'
 
+/**
+ *
+ *
+ * @param {*} tree
+ * @returns modified tree
+ */
+
 function fizzBuzzTree(tree){
     function fizzbuzzer(value){
         if((value % 3 === 0) && (value % 5 === 0)){value = 'FizzBuzz'; return value};
