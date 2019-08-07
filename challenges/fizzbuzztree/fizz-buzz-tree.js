@@ -2,18 +2,22 @@
 
 function fizzBuzzTree(tree){
     function fizzbuzzer(value){
-        if((value % 3 === 0) && (value % 5 === 0)){value = 'FizzBuzz'};
-        if((value % 3) === 0){value = 'Fizz'};
-        if((value % 5) === 0){value = 'Buzz'}
+        if((value % 3 === 0) && (value % 5 === 0)){value = 'FizzBuzz'; return value};
+        if(!(value % 3)){value = 'Fizz'; return value};
+        if(!(value % 5)){value = 'Buzz' ; return value}
+        return value
     };
-    current = tree.root;
+
+    let current = tree.root;
+
     function iterate(current){
         if(current.left){iterate(current.left)}
         if(current.right){iterate(current.right)}
-        fizzbuzzer(current.value)
-    }
+        current.val = fizzbuzzer(current.val)
+    };
+
     iterate(current);
     return tree;
-}
+};
 
-module.export = fizzBuzzTree;
+module.exports = fizzBuzzTree;
