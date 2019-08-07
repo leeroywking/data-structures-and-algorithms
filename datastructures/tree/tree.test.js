@@ -56,4 +56,24 @@ describe('Tree tests', () => {
     bst.add(50);
     expect(bst.postOrder([2, 1, 50, 15, 10, 5])).tobe
   });
+  it('BONUS, BST returns contains true', () => {
+    let bst = new BST();
+    bst.add(5);
+    bst.add(1);
+    bst.add(10);
+    bst.add(15);
+    bst.add(2);
+    bst.add(50);
+    expect(bst.contains(5)).toBeTruthy();
+  });
+  it('BONUS, BST returns contains false', () => {
+    let bst = new BST();
+    bst.add(5);
+    bst.add(1);
+    bst.add(10);
+    bst.add(15);
+    bst.add(2);
+    bst.add(50);
+    expect(bst.contains(100)).toBeFalsy();
+  })
 })
