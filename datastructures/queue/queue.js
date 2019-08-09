@@ -20,13 +20,13 @@ class Queue {
 
   dequeue() {
     let oldFront = this.front;
-    this.front = this.front.previous;
-    oldFront.previous = null;
-    return oldFront.value;
+    if(this.front){this.front = this.front.previous};
+    if(oldFront){oldFront.previous = null;}
+    return oldFront ? oldFront.value : null;
   };
 
   peek() {
-    return this.front.value;
+    return this.front ? this.front.value : null;
   };
 
   // this is a utility function for testing, not for Datastructure use

@@ -75,5 +75,15 @@ describe('Tree tests', () => {
     bst.add(2);
     bst.add(50);
     expect(bst.contains(100)).toBeFalsy();
-  })
-})
+  });
+  it('Challenge 17 returns breadthfirst array', () => {
+    let bst = new BST();
+    bst.add(5);
+    bst.add(1);
+    bst.add(10);
+    bst.add(15);
+    bst.add(2);
+    bst.add(50);
+    expect(bst.breadthFirst()).toEqual([5,1,10,2,15,50])
+  });
+});

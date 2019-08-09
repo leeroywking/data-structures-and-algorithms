@@ -1,3 +1,6 @@
+'use strict'
+
+let Queue = require('../queue/queue.js');
 class Node {
   constructor(value) {
     this.left = null;
@@ -43,6 +46,20 @@ class BinaryTree {
     iterate(current);
     return arr;
   };
+
+  breadthFirst() {
+    let arr = [];
+    let queue = new Queue();
+    let current = this.root;
+    queue.enqueue(current);
+    function walk(current) {
+      if (current.left) { queue.enqueue(current.left) }
+      if (current.right) { queue.enqueue(current.right) }
+      arr.push(queue.dequeue().val);
+    };
+    while (queue.peek()) { walk(queue.front.value) };
+    return arr;
+  };
 };
 
 class BinarySearchTree extends BinaryTree {
@@ -51,14 +68,14 @@ class BinarySearchTree extends BinaryTree {
   }
   add(value) {
     let current = this.root;
-    if(!current){this.root = new Node(value)}
+    if (!current) { this.root = new Node(value) }
     while (current) {
       if (current.val > value) {
         if (!current.left) {
           current.left = new Node(value);
           break
         }
-        else{current = current.left}
+        else { current = current.left }
       }
 
       if (current.val < value) {
@@ -66,12 +83,12 @@ class BinarySearchTree extends BinaryTree {
           current.right = new Node(value)
           break
         }
-        else{ current = current.right}
+        else { current = current.right }
       }
     }
     return this;
   }
-  contains(value){
+  contains(value) {
     return this.preOrder().includes(value)
   }
 };
