@@ -86,4 +86,18 @@ describe('Tree tests', () => {
     bst.add(50);
     expect(bst.breadthFirst()).toEqual([5,1,10,2,15,50])
   });
+  it('Challenge 18 returns undefined if there is nothing in the tree', () => {
+    let bt = new BST();
+    expect(bt.findMaximumValue()).tobeUndefined();
+  });
+  it('Challenge 18 can successfully return the highest value', () => {
+    let tree = new BST();
+    tree.add(7);
+    tree.add(4);
+    tree.add(9);
+    tree.add(12);
+    tree.add(11);
+    tree.add(15);
+    expect(tree.findMaximumValue()).toEqual(15);
+  });
 });

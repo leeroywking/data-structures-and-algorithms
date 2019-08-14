@@ -60,6 +60,22 @@ class BinaryTree {
     while (queue.peek()) { walk(queue.front.value) };
     return arr;
   };
+
+  findMaximumValue(){
+    let output;
+    if(this.root){output = this.root.val}
+    function preOrderWalk(node){
+      checkGreater(node.val);
+      if(node.left){preOrderWalk(node.left)};
+      if(node.right){preOrderWalk(node.right)};
+    };
+    function checkGreater(value){
+      console.log(value , output )
+      if(value > output){output = value};
+    };
+    preOrderWalk(this.root);
+    return output;
+  }
 };
 
 class BinarySearchTree extends BinaryTree {
