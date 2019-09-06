@@ -26,7 +26,7 @@ function bubbleSort(a){
     } while (swapp);
     
   let timeEnd = Date.now()
-return `bubble sort time ${timeEnd - timeStart}`;
+return {text:`bubble sort time ${timeEnd - timeStart}`, result: a};
 }
 
 module.exports = bubbleSort

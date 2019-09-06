@@ -14,7 +14,7 @@ for (let i = 1; i < arr.length; i++) {
   arr[j + 1] = temp
 }
   let timeEnd = Date.now()
-return `Insert sort time ${timeEnd - timeStart}`
+return {text:`insert sort time ${timeEnd - timeStart}`, result: arr}
 }
 
-module.exports = insertionSort
+module.exports = insertionSort;
