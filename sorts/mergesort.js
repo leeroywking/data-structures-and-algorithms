@@ -20,12 +20,12 @@ const merge = (left, right, arr) => {
     }
 
     if (i === left.length) {
-        let arr = right;
+        arr = right;
         //set remaining entries in arr to remaining values in right
     }
 
     else {
-        let arr = left;
+        arr = left;
         //set remaining entries in arr to remaining values in left
     }
 };
@@ -36,7 +36,7 @@ const mergeSort = (arr) => {
     if (n > 1) {
         let mid = n / 2;
         let left = arr.slice(0,mid);
-        let right = arr.slice(mid,n);
+        let right = arr.slice(mid,arr.length-1);
         // sort the left side
         mergeSort(left);
         // sort the right side
