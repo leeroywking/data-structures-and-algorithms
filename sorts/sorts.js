@@ -17,6 +17,6 @@ console.log(bubbleOut.text);
 console.log(mergeOut.text);
 
 fs.writeFileSync('./outputInsert.js', insertOut.result);
-fs.appendFileSync('./outputInsert.js', mergeOut.result);
-fs.appendFileSync('./outputInsert.js', bubbleOut.result);
+fs.appendFileSync('./outputInsert.js', `\n${mergeOut.result}`);
+fs.appendFileSync('./outputInsert.js', `\n${bubbleOut.result}`);
 console.log('done')
