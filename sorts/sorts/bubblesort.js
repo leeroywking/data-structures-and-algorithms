@@ -2,7 +2,7 @@
 
 
 // credit to https://www.w3resource.com/javascript-exercises/javascript-function-exercise-24.php
-// this was not part of our assignment so I did not bother to reinvent the wheel source is above
+// this was not part of our assignment so I did not bother to reinvent the wheel. 
 
 
 function bubbleSort(a){
