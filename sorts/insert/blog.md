@@ -1,7 +1,7 @@
 
 ## Blog Notes: Insertion Sort
 
-Insertion sort is a very easy sort to implement, its important to understand it because it becomes foundational in understanding further algorithms
+Merge sort is the first of the "good" sorts we will be using
 
 This algo is conceptually simple but computationally expensive
 
@@ -9,15 +9,6 @@ This algo is conceptually simple but computationally expensive
   * Implement Insertion sort
   * Write unit tests
   * Produce appropriate Documentation
-
-
-## Information Flow
-
-    Main Point
-        Supporting Points
-    Another main point
-        More details
-        Go here
 
 
 [insertion sort visual](https://gfycat.com/largegenerousjuliabutterfly)
