@@ -9,7 +9,7 @@ let mergeSort = require('../merge/mergesort.js')
 let jsSort = require('./jssort.js')
 let leesort = require('./leesort.js')
 let selectionsort = require('./selectionsort.js')
-let quicksort = require('../quick/quicksort.js')
+let quicksort = require('../quick/newquicksort.js')
 
 let insertOut = insertionSort([...bigArr]);
 let mergeOut = mergeSort([...bigArr]);
