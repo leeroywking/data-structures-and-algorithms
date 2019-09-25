@@ -42,6 +42,7 @@ map.set('d', 'Jxdfd');
 map.set('foo', 'sdfasdf');
 map.set('far', 'fdsfd');
 map.set('far', 'zzzzzz')
+map.set('land', "landhauser")
 map.set('adsfljds', 'xill');
 
 // console.log(map.has('far'));
