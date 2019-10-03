@@ -25,28 +25,31 @@ class HashMap {
   }
 
   get(key) {
-    console.log( this.map[this.hash(key)][0][key])
+    return this.map[this.hash(key)][0][key]
   }
 
 }
 
-let map = new HashMap(16);
-map.set('John', 'John Cokos');
-map.set('Rosie', 'Rosie Cokos');
-map.set('Allie', 'Allie Cokos');
-map.set('Zach', 'Zach Cokos');
-map.set('x', 'x');
-map.set('acc', 'acc');
-map.set('b', 'Jx');
-map.set('d', 'Jxdfd');
-map.set('foo', 'sdfasdf');
-map.set('far', 'fdsfd');
-map.set('far', 'zzzzzz')
-map.set('land', "landhauser")
-map.set('adsfljds', 'xill');
+module.exports = HashMap;
 
-// console.log(map.has('far'));
+// let map = new HashMap(16);
 
-// console.log(map);
+// map.set('John', 'John Cokos');
+// map.set('Rosie', 'Rosie Cokos');
+// map.set('Allie', 'Allie Cokos');
+// map.set('Zach', 'Zach Cokos');
+// map.set('x', 'x');
+// map.set('acc', 'acc');
+// map.set('b', 'Jx');
+// map.set('d', 'Jxdfd');
+// map.set('foo', 'sdfasdf');
+// map.set('far', 'fdsfd');
+// map.set('far', 'zzzzzz')
+// map.set('land', "landhauser")
+// map.set('adsfljds', 'xill');
 
-map.get('far')
+// // console.log(map.has('far'));
+
+// // console.log(map);
+
+// console.log(map.get('far'))
