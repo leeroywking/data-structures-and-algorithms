@@ -2,20 +2,21 @@
 let LRUcache = require('./lrucache.js')
 
 describe('LRU cache tests', () => {
-    it('passes testcase 1', () => {
+    xit('passes testcase 1', () => {
         let lrucache = new LRUcache(2);
         lrucache.put(1,1);
         lrucache.put(2,2);
         let firstget = lrucache.get(1)
         expect(firstget).toEqual(1)
     })
-    it('passes testcase 2', () => {
+    xit('passes testcase 2', () => {
         let lrucache = new LRUcache(2);
         lrucache.put(1,1);
         lrucache.put(2,2);
         lrucache.get(1)
         lrucache.put(3,3);
-        let secondget = lrucache.get(2);
+        // let secondget = lrucache.get(2);
+        console.log(lrucache.map, lrucache.queue)
         expect(secondget).toEqual(-1)
     })
 })

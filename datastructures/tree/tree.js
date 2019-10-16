@@ -64,6 +64,7 @@ class BinaryTree {
 
   findMaximumValue(){
     let output;
+    if(!this.root){return this.root}
     if(this.root){output = this.root.val}
     function preOrderWalk(node){
       checkGreater(node.val);
@@ -71,7 +72,7 @@ class BinaryTree {
       if(node.right){preOrderWalk(node.right)};
     };
     function checkGreater(value){
-      console.log(value , output )
+      // console.log(value , output )
       if(value > output){output = value};
     };
     preOrderWalk(this.root);
