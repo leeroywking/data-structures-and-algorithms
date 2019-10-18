@@ -1,3 +1,4 @@
+'use strict'
 /**
  * @param {number} n
  * @return {boolean}
@@ -20,3 +21,5 @@ var isHappy = function(n) {
     }
     return bool;
 };
+
+module.exports = isHappy;
