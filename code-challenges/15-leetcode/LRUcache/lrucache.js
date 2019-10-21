@@ -14,11 +14,11 @@ class LRUCache {
  * @return {number}
  */
 LRUCache.prototype.get = function (key) {
-  let thing = this.map.get(key);
-  if (thing === undefined) { return -1 }
+  let value = this.map.get(key);
+  if (value === undefined) { return -1 }
   else {
     this.reindex(key)
-    return thing
+    return value
   }
 };
 
@@ -28,12 +28,17 @@ LRUCache.prototype.get = function (key) {
  * @return {void}
  */
 LRUCache.prototype.put = function (key, value) {
-  if (this.queue.length === this.capacity) {
+  if(this.map.get(key)){
+    this.reindex(key)
+  }
+  
+  else if (this.queue.length === this.capacity) {
     let removed = this.queue.shift();
     this.map.delete(removed)
+    this.queue.push(key);
   }
+
   this.map.set(key, value);
-  this.queue.push(key);
 };
 
 LRUCache.prototype.reindex = function(key){
@@ -41,10 +46,11 @@ LRUCache.prototype.reindex = function(key){
   // store start of queue
   let start = this.queue[0]
   // remove key from queue
-  console.log(start, this.queue, this.map)
+  if(start === key){this.queue.push(this.queue.shift()) ;  return}
+  // console.log(start, this.queue, this.map)
   while(this.queue[0] !== key){
-    console.log('shifting', this.queue[0])
-    this.queue.push(queue.shift())
+    // console.log('shifting', this.queue[0])
+    this.queue.push(this.queue.shift())
   }
   this.queue.shift()
   // get the start of the queue back at the beginning
@@ -63,3 +69,4 @@ LRUCache.prototype.reindex = function(key){
  */
 
 module.exports = LRUCache
+
