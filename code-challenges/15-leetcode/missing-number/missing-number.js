@@ -17,4 +17,23 @@ var missingNumber = function(nums) {
     return nums.length
 };
 
-module.exports = missingNumber
+const missingNumber2 = function(nums){
+    let total = nums.reduce((a,b) => { return a + b })
+    let max = (nums.length * nums.length +1) / 2
+    console.log(max - total)
+};
+
+module.exports = missingNumber2
+
+
+/ 0 ,1,2,3,4,5,6,7,8,9,10
+
+10 + 1
+9+2 
+8 3
+7 4
+6 5
+
+55
+
+11 * 10 / 2
