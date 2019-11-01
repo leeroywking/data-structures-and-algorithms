@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let Queue = require('../queue/queue.js');
 class Node {
@@ -9,44 +9,55 @@ class Node {
   }
 }
 
-
 class BinaryTree {
   constructor() {
     this.root = null;
-  };
+  }
   preOrder() {
     let arr = [];
     let current = this.root;
     function iterate(current) {
-      arr.push(current.val)
-      if (current.left) { iterate(current.left) }
-      if (current.right) { iterate(current.right) }
-    };
+      arr.push(current.val);
+      if (current.left) {
+        iterate(current.left);
+      }
+      if (current.right) {
+        iterate(current.right);
+      }
+    }
     iterate(current);
     return arr;
-  };
+  }
   inOrder() {
     let arr = [];
     let current = this.root;
     function iterate(current) {
-      if (current.left) { iterate(current.left) }
-      arr.push(current.val)
-      if (current.right) { iterate(current.right) }
-    };
+      if (current.left) {
+        iterate(current.left);
+      }
+      arr.push(current.val);
+      if (current.right) {
+        iterate(current.right);
+      }
+    }
     iterate(current);
     return arr;
-  };
+  }
   postOrder() {
     let arr = [];
     let current = this.root;
     function iterate(current) {
-      if (current.left) { iterate(current.left) }
-      if (current.right) { iterate(current.right) }
-      arr.push(current.val)
-    };
+      if (current.left) {
+        iterate(current.left);
+      }
+      if (current.right) {
+        iterate(current.right);
+      }
+      arr.push(current.val);
+    }
     iterate(current);
     return arr;
-  };
+  }
 
   breadthFirst() {
     let arr = [];
@@ -54,61 +65,81 @@ class BinaryTree {
     let current = this.root;
     queue.enqueue(current);
     function walk(current) {
-      if (current.left) { queue.enqueue(current.left) }
-      if (current.right) { queue.enqueue(current.right) }
+      if (current.left) {
+        queue.enqueue(current.left);
+      }
+      if (current.right) {
+        queue.enqueue(current.right);
+      }
       arr.push(queue.dequeue().val);
-    };
-    while (queue.peek()) { walk(queue.front.value) };
+    }
+    while (queue.peek()) {
+      walk(queue.front.value);
+    }
     return arr;
-  };
+  }
 
-  findMaximumValue(){
+  findMaximumValue() {
     let output;
-    if(!this.root){return this.root}
-    if(this.root){output = this.root.val}
-    function preOrderWalk(node){
+    if (!this.root) {
+      return this.root;
+    }
+    if (this.root) {
+      output = this.root.val;
+    }
+    function preOrderWalk(node) {
       checkGreater(node.val);
-      if(node.left){preOrderWalk(node.left)};
-      if(node.right){preOrderWalk(node.right)};
-    };
-    function checkGreater(value){
+      if (node.left) {
+        preOrderWalk(node.left);
+      }
+      if (node.right) {
+        preOrderWalk(node.right);
+      }
+    }
+    function checkGreater(value) {
       // console.log(value , output )
-      if(value > output){output = value};
-    };
+      if (value > output) {
+        output = value;
+      }
+    }
     preOrderWalk(this.root);
     return output;
   }
-};
+}
 
 class BinarySearchTree extends BinaryTree {
   constructor() {
-    super()
+    super();
   }
   add(value) {
     let current = this.root;
-    if (!current) { this.root = new Node(value) }
+    if (!current) {
+      this.root = new Node(value);
+    }
     while (current) {
       if (current.val > value) {
         if (!current.left) {
           current.left = new Node(value);
-          break
+          break;
+        } else {
+          current = current.left;
         }
-        else { current = current.left }
       }
 
       if (current.val < value) {
         if (!current.right) {
-          current.right = new Node(value)
-          break
+          current.right = new Node(value);
+          break;
+        } else {
+          current = current.right;
         }
-        else { current = current.right }
       }
     }
     return this;
   }
   contains(value) {
-    return this.preOrder().includes(value)
+    return this.preOrder().includes(value);
   }
-};
+}
 
-module.exports = BinarySearchTree
+module.exports = BinarySearchTree;

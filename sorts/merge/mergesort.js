@@ -3,17 +3,25 @@
 const merge = (left, right) => {
   let results = [];
   while (left.length && right.length) {
-    left[0] < right[0] ? results.push(left.shift()) : results.push(right.shift())
+    left[0] < right[0]
+      ? results.push(left.shift())
+      : results.push(right.shift());
   }
-  while (left.length) { results.push(left.shift()) };
-  while (right.length) { results.push(right.shift()) };
+  while (left.length) {
+    results.push(left.shift());
+  }
+  while (right.length) {
+    results.push(right.shift());
+  }
   return results;
 };
-const bigMergeSort = (arr) => {
+const bigMergeSort = arr => {
   let timeStart = Date.now();
-  const mergeSort = (arr) => {
+  const mergeSort = arr => {
     let n = arr.length;
-    if (n <= 1) { return arr }
+    if (n <= 1) {
+      return arr;
+    }
 
     let mid = Math.floor(n / 2);
     let left = arr.slice(0, mid);
@@ -28,6 +36,6 @@ const bigMergeSort = (arr) => {
   };
   arr = mergeSort(arr);
   let timeEnd = Date.now();
-  return { text: `mergeSort sort time ${timeEnd - timeStart}`, result: arr }
-}
-module.exports = bigMergeSort
+  return { text: `mergeSort sort time ${timeEnd - timeStart}`, result: arr };
+};
+module.exports = bigMergeSort;

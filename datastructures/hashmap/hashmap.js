@@ -5,29 +5,36 @@ class HashMap {
   }
 
   hash(key) {
-    return key.split('').reduce( (acc,val) => {
-      return acc + val.charCodeAt(0)
-    }, 0) * 599 % this.size;
+    return (
+      (key.split('').reduce((acc, val) => {
+        return acc + val.charCodeAt(0);
+      }, 0) *
+        599) %
+      this.size
+    );
   }
 
-  set(key,value) {
+  set(key, value) {
     let hashValue = this.hash(key);
-    if( !this.map[hashValue]) { this.map[hashValue] = []; }
-    this.map[hashValue].push({[key]:value});
+    if (!this.map[hashValue]) {
+      this.map[hashValue] = [];
+    }
+    this.map[hashValue].push({ [key]: value });
   }
 
   has(key) {
     let hashKey = this.hash(key);
-    for(let i=0; i<this.map[hashKey].length; i++) {
-      if( this.map[hashKey][i][key] ) { return true;}
+    for (let i = 0; i < this.map[hashKey].length; i++) {
+      if (this.map[hashKey][i][key]) {
+        return true;
+      }
     }
     return false;
   }
 
   get(key) {
-    return this.map[this.hash(key)][0][key]
+    return this.map[this.hash(key)][0][key];
   }
-
 }
 
 module.exports = HashMap;

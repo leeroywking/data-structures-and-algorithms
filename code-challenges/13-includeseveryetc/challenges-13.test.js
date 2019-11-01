@@ -8,7 +8,7 @@ Write a function named firstLetters that takes in an array of strings and return
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
-const firstLetters = (arr) => arr.map(starter  => starter.charAt(0));
+const firstLetters = arr => arr.map(starter => starter.charAt(0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -18,7 +18,7 @@ Write a function named findHappiness that takes in an array of strings and retur
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => arr.filter(item => item.includes(':)'));
+const findHappiness = arr => arr.filter(item => item.includes(':)'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -28,7 +28,8 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => arr.map(number => number.replace(/[\(\)\- ]/g, ''));
+const standardizePhoneNumbers = arr =>
+  arr.map(number => number.replace(/[\(\)\- ]/g, ''));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -38,22 +39,23 @@ Write a function named onlyOddChars that takes in a string and returns only the 
 For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-const onlyOddChars = (str) => {
-    let output = ''
-    for(let i= 1; i< str.length; i  +=2){
+const onlyOddChars = str => {
+  let output = '';
+  for (let i = 1; i < str.length; i += 2) {
     output += str.charAt(i);
-}
-    return output
-}
+  }
+  return output;
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
-const allHappy = (arr) => arr.reduce((acc,value) =>{
-    return ((acc === true)&&(value.includes(':)'))) ? true :false
-},true);
+const allHappy = arr =>
+  arr.reduce((acc, value) => {
+    return acc === true && value.includes(':)') ? true : false;
+  }, true);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -61,7 +63,8 @@ CHALLENGE 6
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => arr.filter(string => string.includes(target));
+const findAnything = (arr, target) =>
+  arr.filter(string => string.includes(target));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -69,9 +72,10 @@ CHALLENGE 7
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findEvery = (arr, target) => arr.reduce((acc, value) => {
-  return ((acc === true) && (value.includes(target))) ? true : false
-}, true);
+const findEvery = (arr, target) =>
+  arr.reduce((acc, value) => {
+    return acc === true && value.includes(target) ? true : false;
+  }, true);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -85,7 +89,8 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = (arr) => arr.map(darray => darray.filter(string => !string.includes('Brook')));
+const unenrollBrook = arr =>
+  arr.map(darray => darray.filter(string => !string.includes('Brook')));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -108,9 +113,18 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 ]
 ------------------------------------------------------------------------------------------------ */
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysOfWeek = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday'
+];
 
-const sortByDay = (arr) => daysOfWeek.map(day => arr.filter(activity => activity.includes(day)));
+const sortByDay = arr =>
+  daysOfWeek.map(day => arr.filter(activity => activity.includes(day)));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -120,7 +134,7 @@ Write a function named characterByIndex that takes in an array of strings and re
 For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
-const characterByIndex = (arr) => arr.map((string,idx) => string.charAt(idx));
+const characterByIndex = arr => arr.map((string, idx) => string.charAt(idx));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -137,20 +151,37 @@ describe('Testing challenge 1', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
-    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
-    expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
+    expect(firstLetters(words)).toStrictEqual(['a', 'b', 'c']);
+    expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual([
+      'a',
+      'b',
+      'c',
+      'd'
+    ]);
     expect(firstLetters([])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 2', () => {
   test('It should return only the strings that contain smiley faces', () => {
-    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+    const words = [
+      'things',
+      'apple (:)',
+      ':)banana',
+      'missing that thing',
+      'cant:)aloupe'
+    ];
 
-    expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
+    expect(findHappiness(words)).toStrictEqual([
+      'apple (:)',
+      ':)banana',
+      'cant:)aloupe'
+    ]);
     expect(findHappiness([])).toStrictEqual([]);
     expect(findHappiness(['sadness'])).toStrictEqual([]);
-    expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
+    expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([
+      ':) yay'
+    ]);
   });
 });
 
@@ -158,7 +189,10 @@ describe('Testing challenge 3', () => {
   test('It should return a standardized set of phone numbers', () => {
     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
-    expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
+    expect(standardizePhoneNumbers(nums)).toStrictEqual([
+      '1234567890',
+      '2222222222'
+    ]);
     expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
   });
 });
@@ -174,26 +208,49 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should correctly assess whether all the strings are happy', () => {
-    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+    const words = [
+      'things',
+      'apple (:)',
+      ':)banana',
+      'missing that thing',
+      'cant:)aloupe'
+    ];
 
     expect(allHappy(words)).toStrictEqual(false);
-    expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
+    expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(
+      true
+    );
     expect(allHappy([])).toStrictEqual(true);
   });
 });
 
 describe('Testing challenge 6', () => {
   test('It should find all the strings that contain a given string', () => {
-    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+    const words = [
+      'things',
+      'apple (:)',
+      ':)banana',
+      'missing that thing',
+      'cant:)aloupe'
+    ];
 
     expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
-    expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
+    expect(findAnything(words, 'i')).toStrictEqual([
+      'things',
+      'missing that thing'
+    ]);
   });
 });
 
 describe('Testing challenge 7', () => {
   test('It should determine whether all the strings contain a given string', () => {
-    const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
+    const words = [
+      'things',
+      'apple pie (:)',
+      ':)banana pie',
+      'missing that thing',
+      'cant:)aloupe is tasty'
+    ];
 
     expect(findEvery(words, 'a')).toStrictEqual(false);
     expect(findEvery(words, '')).toStrictEqual(true);
@@ -205,7 +262,7 @@ describe('Testing challenge 8', () => {
   test('It should remove Brook from all courses', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
-      ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
+      ['Brook Riggio', "hey look it's Brook", 'Jennifer'],
       ['Nicholas', 'Sam', 'Scott', 'Vinicio']
     ];
 
@@ -214,29 +271,57 @@ describe('Testing challenge 8', () => {
       ['Jennifer'],
       ['Nicholas', 'Sam', 'Scott', 'Vinicio']
     ]);
-    expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
+    expect(
+      unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])
+    ).toStrictEqual([['person'], [], ['person', 'person']]);
     expect(unenrollBrook([])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 9', () => {
   test('It should sort events by the day on which they happen', () => {
-    const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
+    const events = [
+      'Dancing on Mondays and Tuesdays',
+      'Meet the inventors! Monday, August 7',
+      'in the club on a Tuesday',
+      'Thursday Night Code',
+      'Saturday Night Fever'
+    ];
     const sortedEvents = sortByDay(events);
-    expect(sortedEvents[0]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7']));
-    expect(sortedEvents[1]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'in the club on a Tuesday']));
+    expect(sortedEvents[0]).toEqual(
+      expect.arrayContaining([
+        'Dancing on Mondays and Tuesdays',
+        'Meet the inventors! Monday, August 7'
+      ])
+    );
+    expect(sortedEvents[1]).toEqual(
+      expect.arrayContaining([
+        'Dancing on Mondays and Tuesdays',
+        'in the club on a Tuesday'
+      ])
+    );
     expect(sortedEvents[2]).toStrictEqual([]);
     expect(sortedEvents[3]).toStrictEqual(['Thursday Night Code']);
     expect(sortedEvents[4]).toStrictEqual([]);
     expect(sortedEvents[5]).toStrictEqual(['Saturday Night Fever']);
     expect(sortedEvents[6]).toStrictEqual([]);
 
-    const events2 = ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thursday'];
+    const events2 = [
+      'Tuesday',
+      'Monday',
+      'Wednesday and Thursday',
+      'Tuesday 2',
+      'Thursday'
+    ];
     const sortedEvents2 = sortByDay(events2);
     expect(sortedEvents2[0]).toStrictEqual(['Monday']);
-    expect(sortedEvents2[1]).toEqual(expect.arrayContaining(['Tuesday', 'Tuesday 2']));
+    expect(sortedEvents2[1]).toEqual(
+      expect.arrayContaining(['Tuesday', 'Tuesday 2'])
+    );
     expect(sortedEvents2[2]).toStrictEqual(['Wednesday and Thursday']);
-    expect(sortedEvents2[3]).toEqual(expect.arrayContaining(['Wednesday and Thursday', 'Thursday']));
+    expect(sortedEvents2[3]).toEqual(
+      expect.arrayContaining(['Wednesday and Thursday', 'Thursday'])
+    );
     expect(sortedEvents2[4]).toStrictEqual([]);
     expect(sortedEvents2[5]).toStrictEqual([]);
     expect(sortedEvents2[6]).toStrictEqual([]);
@@ -248,7 +333,15 @@ describe('Testing challenge 10', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
     expect(characterByIndex(words)).toStrictEqual(['a', 'a', 'n']);
-    expect(characterByIndex(['abc', 'def', 'ghi'])).toStrictEqual(['a', 'e', 'i']);
-    expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
+    expect(characterByIndex(['abc', 'def', 'ghi'])).toStrictEqual([
+      'a',
+      'e',
+      'i'
+    ]);
+    expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual([
+      'w',
+      'o',
+      'w'
+    ]);
   });
 });

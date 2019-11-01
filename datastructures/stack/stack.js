@@ -1,21 +1,21 @@
-'use strict'
+'use strict';
 
 class Node {
   constructor(value, next = null) {
     this.value = value;
     this.next = next;
-  };
-};
+  }
+}
 
 class Stack {
   constructor() {
     this.top = null;
     this.bottom = null;
-  };
+  }
 
   push(value) {
     this.top = new Node(value, this.top);
-  };
+  }
 
   pop() {
     //assign temp value;
@@ -26,14 +26,15 @@ class Stack {
     temp.next = null;
     //return this.top.value
     return temp.value;
-  };
+  }
 
   peek() {
-    if(this.top){
-    return this.top.value;
+    if (this.top) {
+      return this.top.value;
+    } else {
+      return null;
     }
-    else{return null}
-  };
-};
+  }
+}
 
-module.exports = {Stack};
+module.exports = { Stack };

@@ -28,22 +28,24 @@ function quickSort(items, left, right) {
   var index;
   if (items.length > 1) {
     index = partition(items, left, right); //index returned from partition
-    if (left < index - 1) { //more elements on the left side of the pivot
+    if (left < index - 1) {
+      //more elements on the left side of the pivot
       quickSort(items, left, index - 1);
     }
-    if (index < right) { //more elements on the right side of the pivot
+    if (index < right) {
+      //more elements on the right side of the pivot
       quickSort(items, index, right);
     }
   }
   let timeEnd = Date.now();
-  return { text: `quick sort time ${timeEnd - timeStart}`, result: items }
+  return { text: `quick sort time ${timeEnd - timeStart}`, result: items };
 }
 
 function theneedful(arr) {
   let timeStart = Date.now();
-  quickSort(arr)
+  quickSort(arr);
   let timeEnd = Date.now();
-  return { text: `quick sort time ${timeEnd - timeStart}`, result: arr }
+  return { text: `quick sort time ${timeEnd - timeStart}`, result: arr };
 }
 
 module.exports = quickSort;

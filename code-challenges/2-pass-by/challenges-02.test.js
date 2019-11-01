@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -8,7 +7,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 ------------------------------------------------------------------------------------------------ */
 
-const appendTheEnd = (str) => str + ' The end.';
+const appendTheEnd = str => str + ' The end.';
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -23,7 +22,7 @@ appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
-const appendFirstToLast = (arr) => arr.push(arr[0]);
+const appendFirstToLast = arr => arr.push(arr[0]);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -40,7 +39,7 @@ addBirthYearProperty(octavia, 1947);
 console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
-const addBirthYearProperty = (obj, year) => obj.yearBorn = year;
+const addBirthYearProperty = (obj, year) => (obj.yearBorn = year);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -55,7 +54,10 @@ setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
-const setStatusAsAuthor = (people) => people.forEach(person => {person.isAuthor = true});
+const setStatusAsAuthor = people =>
+  people.forEach(person => {
+    person.isAuthor = true;
+  });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -72,7 +74,9 @@ append(a, b);
 console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
-const append = (arr1, arr2) => {arr2.forEach(element => arr1.push(element))};
+const append = (arr1, arr2) => {
+  arr2.forEach(element => arr1.push(element));
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -115,7 +119,11 @@ describe('Testing challenge 3', () => {
 
 describe('Testing challenge 4', () => {
   test('It should add a property to every object in an array', () => {
-    const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
+    const a = [
+      { fullName: 'Octavia Butler' },
+      { fullName: 'Ray Bradbury' },
+      { fullName: 'Kurt Vonnegut' }
+    ];
     setStatusAsAuthor(a);
 
     expect(a[0].isAuthor).toStrictEqual(true);

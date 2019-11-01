@@ -1,8 +1,7 @@
 'use strict';
-const linkFile = require('./linked-list.js')
+const linkFile = require('./linked-list.js');
 const Linkedlist = linkFile.Linkedlist;
 const mergeLists = linkFile.mergeLists;
-
 
 describe('Testing Singly Linked Lists', () => {
   test('It should be able to insert multiple nodes', () => {
@@ -11,7 +10,7 @@ describe('Testing Singly Linked Lists', () => {
     list.insert(2);
     list.insert(3);
     list.insert(4);
-    expect(list.head.next.next.next).toBeTruthy()
+    expect(list.head.next.next.next).toBeTruthy();
   });
   test('it should start instantiate empty', () => {
     let list = new Linkedlist();
@@ -158,7 +157,24 @@ describe('Function tests for Linked lists (not methods)', () => {
   describe('looping tests for merge lists', () => {
     let array1 = [10, 11, 12, 13, 14, 15];
     let array2 = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
-    let testArray = [20, 10, 21, 11, 22, 12, 23, 13, 24, 14, 25, 15, 26, 27, 28, 29];
+    let testArray = [
+      20,
+      10,
+      21,
+      11,
+      22,
+      12,
+      23,
+      13,
+      24,
+      14,
+      25,
+      15,
+      26,
+      27,
+      28,
+      29
+    ];
     let list1 = new Linkedlist();
     let list2 = new Linkedlist();
     array1.forEach(item => list1.append(item));
@@ -170,8 +186,8 @@ describe('Function tests for Linked lists (not methods)', () => {
         for (let j = 0; j < idx; j++) {
           current = current.next;
         }
-        expect(current.data).toBe(entry)
-      })
-    })
-  })
+        expect(current.data).toBe(entry);
+      });
+    });
+  });
 });

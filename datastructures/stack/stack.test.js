@@ -3,13 +3,12 @@
 const Stack = require('./stack.js').Stack;
 
 describe('Stack tests', () => {
-
-  it('Can push things (single/multiple) on to the stack', () =>{
-    let stack = new Stack ();
+  it('Can push things (single/multiple) on to the stack', () => {
+    let stack = new Stack();
     stack.push(5);
     stack.push(10);
     stack.push(15);
-    stack.peek()
+    stack.peek();
     expect(stack.peek()).toBe(15);
   });
 
@@ -19,15 +18,15 @@ describe('Stack tests', () => {
     stack.push(10);
     stack.push(15);
     stack.peek();
-    expect(stack.peek()).toBe(stack.pop())
+    expect(stack.peek()).toBe(stack.pop());
   });
 
   it('can empty a stack', () => {
     let stack = new Stack();
     stack.push(5);
     stack.pop();
-    expect(stack.peek()).toBeFalsy()
-  })
+    expect(stack.peek()).toBeFalsy();
+  });
 
   it('can peek (it already can I used it for testing', () => {
     let stack = new Stack();
@@ -35,6 +34,6 @@ describe('Stack tests', () => {
     stack.push(10);
     stack.push(15);
     stack.peek();
-    expect(stack.peek()).toBe(15)
+    expect(stack.peek()).toBe(15);
   });
 });

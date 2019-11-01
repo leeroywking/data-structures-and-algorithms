@@ -8,7 +8,11 @@ Write a function named toTitleCase that takes in an array of strings and returns
 For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyver'].
 ------------------------------------------------------------------------------------------------ */
 
-const toTitleCase = (arr) => arr.map(string => string.charAt(0).toUpperCase() + string.substring(1, string.length));
+const toTitleCase = arr =>
+  arr.map(
+    string =>
+      string.charAt(0).toUpperCase() + string.substring(1, string.length)
+  );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -20,68 +24,74 @@ The names should be combined into a single string with each character name separ
 For example, "Lando Calrisian - Boba Fett - Princess Amidala".
 ------------------------------------------------------------------------------------------------ */
 
-let starWarsData = [{
-  name: 'Luke Skywalker',
-  height: '172',
-  mass: '77',
-  hair_color: 'blond',
-  skin_color: 'fair',
-  eye_color: 'blue',
-  birth_year: '19BBY',
-  gender: 'male',
-},
-{
-  name: 'C-3PO',
-  height: '167',
-  mass: '75',
-  hair_color: 'n/a',
-  skin_color: 'gold',
-  eye_color: 'yellow',
-  birth_year: '112BBY',
-  gender: 'n/a'
-},
-{
-  name: 'R2-D2',
-  height: '96',
-  mass: '32',
-  hair_color: 'n/a',
-  skin_color: 'white, blue',
-  eye_color: 'red',
-  birth_year: '33BBY',
-  gender: 'n/a'
-},
-{
-  name: 'Darth Vader',
-  height: '202',
-  mass: '136',
-  hair_color: 'none',
-  skin_color: 'white',
-  eye_color: 'yellow',
-  birth_year: '41.9BBY',
-  gender: 'male'
-},
-{
-  name: 'Leia Organa',
-  height: '150',
-  mass: '49',
-  hair_color: 'brown',
-  skin_color: 'light',
-  eye_color: 'brown',
-  birth_year: '19BBY',
-  gender: 'female'
-},
-{
-  name: 'Pex Kylar',
-  height: '180',
-  mass: '190',
-  hair_color: 'orange',
-  skin_color: 'brown',
-  eye_color: 'none',
-  birth_year: '27BBY',
-  gender: 'n/a'
-}];
+let starWarsData = [
+  {
+    name: 'Luke Skywalker',
+    height: '172',
+    mass: '77',
+    hair_color: 'blond',
+    skin_color: 'fair',
+    eye_color: 'blue',
+    birth_year: '19BBY',
+    gender: 'male'
+  },
+  {
+    name: 'C-3PO',
+    height: '167',
+    mass: '75',
+    hair_color: 'n/a',
+    skin_color: 'gold',
+    eye_color: 'yellow',
+    birth_year: '112BBY',
+    gender: 'n/a'
+  },
+  {
+    name: 'R2-D2',
+    height: '96',
+    mass: '32',
+    hair_color: 'n/a',
+    skin_color: 'white, blue',
+    eye_color: 'red',
+    birth_year: '33BBY',
+    gender: 'n/a'
+  },
+  {
+    name: 'Darth Vader',
+    height: '202',
+    mass: '136',
+    hair_color: 'none',
+    skin_color: 'white',
+    eye_color: 'yellow',
+    birth_year: '41.9BBY',
+    gender: 'male'
+  },
+  {
+    name: 'Leia Organa',
+    height: '150',
+    mass: '49',
+    hair_color: 'brown',
+    skin_color: 'light',
+    eye_color: 'brown',
+    birth_year: '19BBY',
+    gender: 'female'
+  },
+  {
+    name: 'Pex Kylar',
+    height: '180',
+    mass: '190',
+    hair_color: 'orange',
+    skin_color: 'brown',
+    eye_color: 'none',
+    birth_year: '27BBY',
+    gender: 'n/a'
+  }
+];
 
-let biggerThanLuke = (arr) => arr.filter(character => character.mass > 77).map(character => character.name).join(' - ');
+let biggerThanLuke = arr =>
+  arr
+    .filter(character => character.mass > 77)
+    .map(character => character.name)
+    .join(' - ');
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 Write a function named sortBy that takes in an array of objects, each of which has a particular property, and sorts those objects by that property, lowest to highest, returning the same array.
@@ -96,10 +106,14 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => arr.sort((a, b) => {
-  if (a[property] > b[property]) { return 1 }
-  else { return -1 }
-})
+const sortBy = (property, arr) =>
+  arr.sort((a, b) => {
+    if (a[property] > b[property]) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -113,10 +127,13 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
-const isSecure = (url) => {
-  if (url.match(/https\:\/\//)) { return true }
-  else { return false }
-}
+const isSecure = url => {
+  if (url.match(/https\:\/\//)) {
+    return true;
+  } else {
+    return false;
+  }
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -136,30 +153,32 @@ Here is a sample board:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-
-const detectTicTacToeWin = (board) => {
-  const lineGenerator = (board) => {
+const detectTicTacToeWin = board => {
+  const lineGenerator = board => {
     let lines = [];
-    board.forEach(row => lines.push(row))
+    board.forEach(row => lines.push(row));
     for (let j = 0; j < 3; j++) {
       let tempLine = [];
       for (let i = 0; i < 3; i++) {
-        tempLine.push(board[i][j])
+        tempLine.push(board[i][j]);
       }
       lines.push(tempLine);
     }
-    lines.push([board[0][0], board[1][1], board[2][2]])
-    lines.push([board[0][2], board[1][1], board[2][0]])
-    return lines
-  }
-  
-  const emptyCheck = (line) => (line.filter(entry => entry).length === 3) ? true : false
-  const lineCheck = (line) => ((line[0] === line[1]) && (line[0] === line[2])) ? true : false
-  const isLineWin = (line) => (lineCheck(line) && emptyCheck(line)) ? true : false
+    lines.push([board[0][0], board[1][1], board[2][2]]);
+    lines.push([board[0][2], board[1][1], board[2][0]]);
+    return lines;
+  };
+
+  const emptyCheck = line =>
+    line.filter(entry => entry).length === 3 ? true : false;
+  const lineCheck = line =>
+    line[0] === line[1] && line[0] === line[2] ? true : false;
+  const isLineWin = line =>
+    lineCheck(line) && emptyCheck(line) ? true : false;
 
   let lines = lineGenerator(board);
   let lineResults = lines.map(line => isLineWin(line));
-  return (lineResults.includes(true)) ? true : false
+  return lineResults.includes(true) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -184,43 +203,45 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return only characters that are bigger than Luke', () => {
-    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
+    expect(biggerThanLuke(starWarsData)).toStrictEqual(
+      'Darth Vader - Pex Kylar'
+    );
     expect(biggerThanLuke([])).toStrictEqual('');
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should sort items by a price', () => {
-
-    expect(sortBy('price', [
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 }
-    ])).toStrictEqual([
-      { name: 'Bookmark', price: 2.50 },
+    expect(
+      sortBy('price', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.5 },
+        { name: 'Tote bag', price: 15 }
+      ])
+    ).toStrictEqual([
+      { name: 'Bookmark', price: 2.5 },
       { name: 'Tote bag', price: 15 },
-      { name: 'Sweatshirt', price: 45 },
+      { name: 'Sweatshirt', price: 45 }
     ]);
-
   });
 
   test('It should sort items by name', () => {
-
-    expect(sortBy('name', [
+    expect(
+      sortBy('name', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.5 },
+        { name: 'Tote bag', price: 15 }
+      ])
+    ).toStrictEqual([
+      { name: 'Bookmark', price: 2.5 },
       { name: 'Sweatshirt', price: 45 },
-      { name: 'Bookmark', price: 2.50 },
       { name: 'Tote bag', price: 15 }
-    ])).toStrictEqual([
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Tote bag', price: 15 },
     ]);
   });
 });
 
 describe('Testing challenge 4', () => {
   test('It should check if url is https', () => {
-
     expect(isSecure('http://www.insecure.com')).toBe(false);
     expect(isSecure('https://secure.com')).toBe(true);
     expect(isSecure('https:/missingslash.org')).toBe(false);
@@ -229,15 +250,23 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should return true if there are three in a row', () => {
-    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
-    expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
+    expect(
+      detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])
+    ).toStrictEqual(true);
+    expect(
+      detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])
+    ).toStrictEqual(true);
   });
 
   test('It should return false if there are not three in a row', () => {
-    expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
+    expect(
+      detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])
+    ).toStrictEqual(false);
   });
 
   test('It should not treat empty 3 in row as winner', () => {
-    expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
+    expect(
+      detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])
+    ).toEqual(false);
   });
 });

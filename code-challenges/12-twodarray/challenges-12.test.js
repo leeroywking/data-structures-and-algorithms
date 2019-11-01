@@ -12,7 +12,20 @@ For this example, the total at 9:00 a.m. is 17 + 26 + 7 + 5 + 33, or 88 total co
 Return the array of the total number of cookies sold per hour for all of the stores combined.
 ------------------------------------------------------------------------------------------------ */
 
-const hoursOpen = ['9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', '8 p.m.'];
+const hoursOpen = [
+  '9 a.m.',
+  '10 a.m.',
+  '11 a.m.',
+  '12 p.m.',
+  '1 p.m.',
+  '2 p.m.',
+  '3 p.m.',
+  '4 p.m.',
+  '5 p.m.',
+  '6 p.m.',
+  '7 p.m.',
+  '8 p.m.'
+];
 
 const firstPike = [17, 18, 23, 24, 24, 12, 13, 27, 30, 20, 24, 18];
 const seaTac = [26, 5, 5, 59, 23, 39, 38, 20, 30, 7, 59, 43];
@@ -22,14 +35,18 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
-const grandTotal = (stores) => {
+const grandTotal = stores => {
   let output = [];
-  stores.forEach(store => store.forEach((hour, idx) => {
-    if(!output[idx]){output.push(hour)} 
-    else{output[idx] += hour}
-  })
-    )
-  return output;  
+  stores.forEach(store =>
+    store.forEach((hour, idx) => {
+      if (!output[idx]) {
+        output.push(hour);
+      } else {
+        output[idx] += hour;
+      }
+    })
+  );
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,10 +65,10 @@ const salesData = (hours, data) => {
     bigOutput.push({
       sales: `${data[idx]} cookies`,
       time: hour
-    })
-  })
-  return bigOutput;  
-}
+    });
+  });
+  return bigOutput;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -60,27 +77,44 @@ Write a function named howManyTreats that will return the quantity of treats you
 ------------------------------------------------------------------------------------------------ */
 
 const errands = [
-  { store: 'Grocery store',
-    items: [ { name: 'Eggs', quantity: 12 }, { name: 'Milk', quantity: 1 }, { name: 'Apples', quantity: 3 }]
+  {
+    store: 'Grocery store',
+    items: [
+      { name: 'Eggs', quantity: 12 },
+      { name: 'Milk', quantity: 1 },
+      { name: 'Apples', quantity: 3 }
+    ]
   },
-  { store: 'Drug store',
-    items: [ { name: 'Toothpaste', quantity: 1 }, { name: 'Toothbrush', quantity: 3 }, { name: 'Mouthwash',quantity: 1 } ]
+  {
+    store: 'Drug store',
+    items: [
+      { name: 'Toothpaste', quantity: 1 },
+      { name: 'Toothbrush', quantity: 3 },
+      { name: 'Mouthwash', quantity: 1 }
+    ]
   },
-  { store: 'Pet store',
-    items: [ { name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 } ]
+  {
+    store: 'Pet store',
+    items: [
+      { name: 'Cans of food', quantity: 8 },
+      { name: 'Treats', quantity: 24 },
+      { name: 'Leash', quantity: 1 }
+    ]
   }
 ];
 
-const howManyTreats = (arr) => {
-  let output = 0
+const howManyTreats = arr => {
+  let output = 0;
   arr.forEach(storeobj => {
-    if(storeobj.store === 'Pet store'){
+    if (storeobj.store === 'Pet store') {
       storeobj.items.forEach(item => {
-        if(item.name === 'Treats'){output = item.quantity}
-      })
+        if (item.name === 'Treats') {
+          output = item.quantity;
+        }
+      });
     }
-  })
-  return output  
+  });
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,8 +136,11 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  if(board[row][col] === '#'){return 'hit'}
-  else{return 'miss'}
+  if (board[row][col] === '#') {
+    return 'hit';
+  } else {
+    return 'miss';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +151,8 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => numbers.flat().reduce((acc,value) => acc*value);
+const calculateProduct = numbers =>
+  numbers.flat().reduce((acc, value) => acc * value);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -129,10 +167,11 @@ const weeklyTemperatures = [
   [66, 64, 58, 65, 71, 57, 60],
   [57, 65, 65, 70, 72, 65, 51],
   [55, 54, 60, 53, 59, 57, 61],
-  [65, 56, 55, 52, 55, 62, 57],
+  [65, 56, 55, 52, 55, 62, 57]
 ];
 
-const averageDailyTemperature = (weather) => weather.flat().reduce((acc,value) => acc+value)/weather.flat().length;
+const averageDailyTemperature = weather =>
+  weather.flat().reduce((acc, value) => acc + value) / weather.flat().length;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -148,15 +187,17 @@ let lowestWeeklyTemperatureData = [
   [33, 64, 58, 65, 71, 57, 60],
   [40, 45, 33, 53, 44, 59, 48],
   [55, 54, 60, 53, 59, 57, 61],
-  [65, 56, 55, 52, 55, 62, 57],
+  [65, 56, 55, 52, 55, 62, 57]
 ];
 
-const lowestWeeklyAverage = (weather) => {
+const lowestWeeklyAverage = weather => {
   let output = 99999;
   weather.forEach(week => {
-    let weekVal = week.reduce((acc, value) => acc + value) /week.length
-    if(weekVal < output){output = weekVal}
-  })
+    let weekVal = week.reduce((acc, value) => acc + value) / week.length;
+    if (weekVal < output) {
+      output = weekVal;
+    }
+  });
   return output;
 };
 
@@ -172,9 +213,13 @@ The function should parse the string as rows and columns and compute the sum of 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
-const excel = (str) => str.split('\n').map(item => item.split(',')
-  .map(entry => Number.parseInt(entry))
-  .reduce((acc,value) => acc+value))
+const excel = str =>
+  str.split('\n').map(item =>
+    item
+      .split(',')
+      .map(entry => Number.parseInt(entry))
+      .reduce((acc, value) => acc + value)
+  );
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -187,10 +232,22 @@ Run your tests from the console: jest challenge-12.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-
 describe('Testing challenge 1', () => {
   test('It should add the hourly totals array', () => {
-    expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
+    expect(grandTotal(cookieStores)).toStrictEqual([
+      88,
+      153,
+      252,
+      286,
+      139,
+      161,
+      145,
+      232,
+      276,
+      207,
+      161,
+      169
+    ]);
   });
 });
 
@@ -211,10 +268,11 @@ describe('Testing challenge 2', () => {
       { sales: '169 cookies', time: '8 p.m.' }
     ]);
 
-    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
+    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(
+      hoursOpen.length
+    );
   });
 });
-
 
 describe('Testing challenge 3', () => {
   test('It should return the number 24', () => {
@@ -227,7 +285,7 @@ describe('Testing challenge 4', () => {
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
     ['#', ' ', ' ', ' '],
-    [' ', ' ', '#', '#'],
+    [' ', ' ', '#', '#']
   ];
 
   test('It should return "hit" when it hits a boat', () => {
@@ -243,14 +301,16 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should multiply all the numbers together', () => {
-    expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
+    expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
 
   test('It should return zero if there are any zeroes in the data', () => {
-    expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
+    expect(
+      calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])
+    ).toStrictEqual(0);
   });
   test('It should work even if some of the arrays contain no numbers', () => {
-    expect(calculateProduct([[1,2], [], [3,4,5]])).toStrictEqual(120);
+    expect(calculateProduct([[1, 2], [], [3, 4, 5]])).toStrictEqual(120);
   });
 });
 
