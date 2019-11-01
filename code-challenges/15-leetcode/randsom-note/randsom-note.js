@@ -21,20 +21,25 @@ canConstruct("aa", "aab") -> true
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function (randsomNote, magazine) {
-  let map = new Map()
-  valid = true
+var canConstruct = function(randsomNote, magazine) {
+  let map = new Map();
+  valid = true;
   magazine.split('').forEach(letter => {
     let temp = map.get(letter);
-    if (!temp) { temp = 0 }
-    map.set(letter, temp + 1)
-  })
+    if (!temp) {
+      temp = 0;
+    }
+    map.set(letter, temp + 1);
+  });
   randsomNote.split('').forEach(letter => {
-    let count = map.get(letter)
-    if(!count){valid =  false}
-    else{map.set(letter,count -1 )}
-  })
-  return valid
+    let count = map.get(letter);
+    if (!count) {
+      valid = false;
+    } else {
+      map.set(letter, count - 1);
+    }
+  });
+  return valid;
 };
 
 module.exports = canConstruct;
