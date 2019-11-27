@@ -4,15 +4,13 @@
  * @return {boolean}
  */
 const isValid = function (s) {
-  let valid = true;
-  let split = s.split('');
   let parens = {
     "}":"{",
     ")":"(",
     "]":"["
   };
   const stack = [];
-  for(const i of split){
+  for(const i of s){
     if(stack.length && stack[stack.length -1] === parens[i]){stack.pop()}
     else{stack.push(i)}
   }
